@@ -18,6 +18,7 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
     }
+
     private static String determineBaseUrl() {
         String environment = System.getProperty("env", "test");
         String configFileName = "application-" + environment + ".properties";
