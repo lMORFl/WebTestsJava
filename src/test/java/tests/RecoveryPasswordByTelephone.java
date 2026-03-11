@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RecoveryByTelephone extends BaseTest {
+public class RecoveryPasswordByTelephone extends BaseTest {
 
         private static LoginPage loginPage;
         private static AnonymRecoveryPage anonymRecoveryPage;

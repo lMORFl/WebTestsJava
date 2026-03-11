@@ -6,12 +6,11 @@ import core.pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RecoveryByEmail extends BaseTest {
+public class RecoveryPasswordByEmail extends BaseTest {
 
     private static LoginPage loginPage;
     private static AnonymRecoveryPage anonymRecoveryPage;
