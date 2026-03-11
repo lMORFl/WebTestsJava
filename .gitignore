@@ -44,4 +44,4 @@ bin/
 .DS_Store
 
 .build
-.allure-results
+allure-results
