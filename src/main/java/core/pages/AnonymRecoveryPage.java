@@ -13,7 +13,7 @@ public class AnonymRecoveryPage extends BasePage {
 
     private SelenideElement stringOfRecovery = $x("//div[normalize-space()='Восстановление доступа']");
     private SelenideElement buttonTelephone = $("[data-l='t,phone']");
-    private SelenideElement buttonEmail = $("[data-l='t,mail']");
+    private SelenideElement buttonEmail = $("[data-l='t,email']");
 
     @Step("Проверяем, что надпись \"Востановление доступа\" видна")
     public boolean isStringOfRecoveryVisible() { return stringOfRecovery.shouldBe(visible).exists(); }
