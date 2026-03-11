@@ -26,7 +26,7 @@ public class RecoveryPasswordByEmail extends BaseTest {
     }
 
     @Test
-    public void loginWithWrongCredentionals() {
+    public void toPasswordRecoveryByEmail() {
         //Попытка входа с некорректными данными 3 раза
 
 

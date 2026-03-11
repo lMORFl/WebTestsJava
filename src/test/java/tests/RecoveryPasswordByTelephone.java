@@ -25,7 +25,7 @@ public class RecoveryPasswordByTelephone extends BaseTest {
         }
 
         @Test
-        public void loginWithWrongCredentionals() {
+        public void toPasswordRecoveryByTelephone() {
             //Попытка входа с некорректными данными 3 раза
 
 
