@@ -15,7 +15,7 @@ public class AnonymRecoveryPage extends BasePage {
     private SelenideElement buttonTelephone = $("[data-l='t,phone']");
     private SelenideElement buttonEmail = $("[data-l='t,email']");
 
-    @Step("Проверяем, что надпись \"Востановление доступа\" видна")
+    @Step("Проверяем, что надпись \"Восcтановление доступа\" видна")
     public boolean isStringOfRecoveryVisible() { return stringOfRecovery.shouldBe(visible).exists(); }
 
     @Step("Проверяем, кнопки путей восстановления видимы")
