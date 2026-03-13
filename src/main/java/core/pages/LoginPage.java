@@ -29,6 +29,14 @@ public class LoginPage extends BasePage {
     //Кнопка восстановить пароль
     private SelenideElement buttonRecovery = $x("//a//span[text()='Восстановить']/..");
 
+    private SelenideElement buttonQRCode = $x("//button[@label='Войти по QR-коду']");
+    private SelenideElement qrCode = $x("//img[@class='qr_code_image']");
+
+    private SelenideElement hyperLinkCantEnter = $x("//button[normalize-space()='Не получается войти?']");
+
+    private SelenideElement searchField = $("[name='st.query']");
+    private SelenideElement showAllResults = $x("//a[normalize-space()='Показать все результаты']");
+
     {
         verifyPageElements();
     }
@@ -43,6 +51,8 @@ public class LoginPage extends BasePage {
         vkButton.shouldBe(visible);
         googleButton.shouldBe(visible);
         mailRuButton.shouldBe(visible);
+        buttonQRCode.shouldBe(visible);
+        hyperLinkCantEnter.shouldBe(visible);
     }
 
     @Step("Проверяем видимость сообщения об ошибке входа")
@@ -106,10 +116,31 @@ public class LoginPage extends BasePage {
         mailRuButton.shouldBe(visible).click();
     }
 
-    @Step("Проверяем видимость кнопки \"/Востановить\"")
+    @Step("Проверяем видимость кнопки \"Востановить\"")
     public boolean getButtonRecovery() { return buttonRecovery.shouldBe(visible).exists(); }
 
     @Step("Переходим на страницу восстановления пароля")
     public void openRecoveryPage() { buttonRecovery.shouldBe(visible).click(); }
+
+    @Step("Проверяем видимость кнопки \"Войти по QR-коду\"")
+    public boolean isButtonQRCodeVisible() { return buttonQRCode.shouldBe(visible).exists(); }
+
+    @Step("Переход к QR-коду")
+    public void clickOnButtonQRCode() { buttonQRCode.shouldBe(visible).click(); }
+
+    @Step("Проверяем видимость QR-кода")
+    public boolean isQRCodeVisible() { return qrCode.shouldBe(visible).exists(); }
+
+    @Step("кликаем на ссылку \"Не получается войти?\"")
+    public void clickCantEnter() { hyperLinkCantEnter.shouldBe(visible).click(); }
+
+    @Step("Ввод в строку поиска \"Тестировщик\"")
+    public void enterWordSearchField(String word) {
+        searchField.shouldBe(visible).click();
+        searchField.shouldBe(visible).setValue(word);
+    }
+    @Step("Клик по \"Показать все результаты\"")
+    public void clickOnShowAllResults() { showAllResults.shouldBe(visible).click();}
+
 
 }
