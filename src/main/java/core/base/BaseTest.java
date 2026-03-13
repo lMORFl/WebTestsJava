@@ -3,21 +3,22 @@ package core.base;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.annotations.BeforeTest;
 
 import java.io.InputStream;
 import java.util.Properties;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
     protected static String baseUrl;
 
-    @BeforeTest
+    @BeforeEach
     public void setUp() {
         baseUrl = determineBaseUrl();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
     }
+
     private static String determineBaseUrl() {
         String environment = System.getProperty("env", "test");
         String configFileName = "application-" + environment + ".properties";
