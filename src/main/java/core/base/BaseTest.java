@@ -9,37 +9,11 @@ import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class BaseTest {
-    protected static String baseUrl;
+public class BaseTest extends AbstractBaseTest{
 
-    @BeforeEach
-    public void setUp() {
-        baseUrl = determineBaseUrl();
+    @Override
+    protected void configure() {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
-    }
-
-    private static String determineBaseUrl() {
-        String environment = System.getProperty("env", "test");
-        String configFileName = "application-" + environment + ".properties";
-
-        Properties properties = new Properties();
-        try (InputStream input = BaseTest.class.getClassLoader().getResourceAsStream(configFileName)) {
-            if (input == null) {
-                throw new IllegalStateException("Configuration file not found: " + configFileName);
-            }
-            properties.load(input);
-        } catch (Exception e){
-            throw new IllegalStateException("Unable to load configuration file: " + configFileName);
-        }
-        return properties.getProperty("baseUrl");
-    }
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        closeWebDriver();
     }
 }

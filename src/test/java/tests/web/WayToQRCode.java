@@ -1,12 +1,10 @@
-package tests;
+package tests.web;
 
-import core.base.BasePage;
 import core.base.BaseTest;
-import core.pages.LoginPage;
+import core.pages.web.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
 public class WayToQRCode extends BaseTest {

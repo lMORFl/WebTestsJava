@@ -11,7 +11,7 @@ public class BasePage {
     //Примеры общих элементов, которые могут использоваться на разных страницах
     protected SelenideElement headerLogo = $("[tsid='toolbar_logo']");
     protected SelenideElement searchField = $("[name='st.query']");
-    protected SelenideElement vkServices = $("[data-l+'t,vk_ecosystem']");
+    protected SelenideElement vkServices = $("[data-l='t,vk_ecosystem']");
     protected SelenideElement acceptCookieButton = $(".cb_accept");
     protected SelenideElement acceptPrivacyButton = $(".cmptxt_btn_yes");
 

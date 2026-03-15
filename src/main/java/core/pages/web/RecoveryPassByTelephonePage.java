@@ -1,4 +1,4 @@
-package core.pages;
+package core.pages.web;
 
 import com.codeborne.selenide.SelenideElement;
 import core.base.BasePage;
@@ -40,7 +40,7 @@ public class RecoveryPassByTelephonePage extends BasePage {
     @Step("Выбираем код страны по названию: {countryName}")
     public String selectCountryByName(String countryName) {
         dropCountryList.click();
-        SelenideElement countryItem = $(String.format(".country-select_i[data-name='%s']",countryName));
+        SelenideElement countryItem = $x(String.format(".country-select_i[data-name='%s']",countryName));
         countryItem.scrollTo();
         String countryCode = countryItem.find(".country-select_code").text();
         countryItem.click();
@@ -65,7 +65,7 @@ public class RecoveryPassByTelephonePage extends BasePage {
         return stringOfError.shouldBe(visible).exists();
     }
 
-    @Step("Получаем текст сообщения об ошибке входа")
+    @Step("Получаем текст сообщения об ошибке")
     public String getStringOfErrorText() {
         return stringOfError.shouldBe(visible).getText();
     }
