@@ -1,7 +1,7 @@
-package tests;
+package tests.web;
 
 import core.base.BaseTest;
-import core.pages.LoginPage;
+import core.pages.web.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LoginWithOnlyWrongPassword extends BaseTest {
+public class LoginWithOnlyWrongLogin extends BaseTest {
 
     private static LoginPage loginPage;
 
@@ -24,16 +24,16 @@ public class LoginWithOnlyWrongPassword extends BaseTest {
     }
 
     @Test
-    public void loginWithOnlyWrongPassword() {
+    public void loginWithOnlyWrongLogin() {
         //Попытка входа с некорректными данными
-        loginPage.login(null, "incorrectPass");
+        loginPage.login("incorrectPass", null);
 
         //Проверка наличия сообщения об ошибке
-        assertTrue(loginPage.isErrorMessageLoginVisible(), "Сообщение об ошибке входа не отображается");
+        assertTrue(loginPage.isErrorMessagePassVisible(), "Сообщение об ошибке входа не отображается");
 
         //Проверка текста сообщения об ошибке
-        String expectedErrorMessage = "Введите логин";
-        String actualErrorMessage = loginPage.getErrorMessageLoginText();
+        String expectedErrorMessage = "Введите пароль";
+        String actualErrorMessage = loginPage.getErrorMessagePassText();
         assertEquals(expectedErrorMessage, actualErrorMessage, "Текст сообщения об ошибке не совпадает");
     }
 }
